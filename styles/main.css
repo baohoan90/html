@@ -1,0 +1,713 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+:root {
+  --white: #fff;
+  --silver: #eee;
+  --green: #27ae60;
+  --black: #192a56;
+  --light-color: #666;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  --dark-transparency-8: rgba(0, 0, 0, 0.8);
+  --dark-transparency-2: rgba(0, 0, 0, 0.2);
+  --zindex-header: 997;
+  --zindex-search: 998;
+  --zindex-modal: 999;
+}
+
+* {
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
+  font-family: "Nunito", sans-serif;
+}
+
+html {
+  /* Base 1rem = 16px */
+  /* With font-size: 62.5%, it will convert 1 rem=10px. Now you will be working 10px base */
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 5.5rem;
+  scroll-behavior: smooth;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 7%;
+  z-index: var(--zindex-header);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+}
+
+header .logo {
+  color: var(--black);
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+
+header .logo i {
+  color: var(--green);
+}
+
+header .navbar a {
+  font-size: 1.7rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  color: var(--light-color);
+}
+
+header .navbar a:hover,
+header .navbar .active {
+  color: #fff;
+  background-color: var(--green);
+}
+
+header .icons i,
+header .icons a {
+  cursor: pointer;
+  margin-left: 0.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  line-height: 4.5rem;
+  text-align: center;
+  font-size: 1.7rem;
+  color: var(--black);
+  border-radius: 50%;
+  background: #eee;
+}
+
+header .icons i:hover,
+header .icons a:hover {
+  color: var(--white);
+  background-color: var(--green);
+  transform: rotate(360deg);
+}
+
+header .icons .menu-bar {
+  display: none;
+}
+
+.search-form {
+  z-index: var(--zindex-search);
+  position: fixed;
+  top: -110%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--dark-transparency-8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.search-form.active {
+  top: 0;
+}
+
+.search-form .search-box {
+  font-size: 3rem;
+  width: 90%;
+  margin: 0 1rem;
+  padding: 1rem 2rem;
+  border-bottom: 0.1rem solid var(--white);
+  text-transform: none;
+  background: none;
+  color: var(--white);
+}
+
+.search-form .search-box::placeholder {
+  color: var(--white);
+}
+
+.search-form .search-box::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.search-form .search-icon-btn {
+  cursor: pointer;
+  font-size: 3rem;
+  color: var(--white);
+}
+
+.search-form .search-icon-btn:hover {
+  color: var(--green);
+}
+
+.search-form .search-close-btn {
+  top: 2rem;
+  right: 3rem;
+  font-size: 5rem;
+  cursor: pointer;
+  position: absolute;
+  color: var(--white);
+}
+
+.search-form .search-close-btn:hover {
+  color: var(--green);
+}
+
+section {
+  padding: 0.2rem 9%;
+}
+
+section:nth-child(even) {
+  background: var(--silver);
+}
+
+/* Begin Slider */
+.home .home-slider .slide {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-top: 9rem;
+}
+
+.home .home-slider .slide .content {
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 45rem;
+  /* flex: 1 1 45rem; */
+}
+
+.home .home-slider .slide .image {
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 45rem;
+  padding: 0 5rem;
+}
+
+.home .home-slider .slide .content .short-description {
+  color: var(--green);
+  font-size: 3.5rem;
+}
+
+.home .home-slider .slide .content .title {
+  color: var(--black);
+  font-size: 7rem;
+}
+
+.home .home-slider .slide .content .long-description {
+  color: var(--light-color);
+  font-size: 2.2rem;
+  line-height: 1.5;
+  padding: 1rem 0;
+}
+
+.home .home-slider .slide .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--green);
+}
+/* End Slider */
+
+/* Begin Product List */
+.sub-heading {
+  text-align: center;
+  color: var(--green);
+  font-size: 2rem;
+  padding-top: 1rem;
+}
+.heading {
+  text-align: center;
+  color: var(--black);
+  font-size: 3rem;
+  padding-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.dishes {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.dishes .box-container {
+  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+}
+
+.dishes .box-container .box {
+  padding: 2.5rem;
+  background: var(--white);
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--box-shadow);
+  box-shadow: var(--box-shadow);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.dishes .box-container .box .fa-eye,
+.dishes .box-container .box .fa-heart {
+  top: 1.5rem;
+  position: absolute;
+  background: var(--silver);
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  font-size: 2rem;
+  color: var(--black);
+}
+
+.dishes .box-container .box .fa-eye:hover,
+.dishes .box-container .box .fa-heart:hover {
+  background: var(--green);
+  color: var(--white);
+}
+
+.dishes .box-container .box .fa-eye {
+  left: -15rem;
+}
+.dishes .box-container .box .fa-heart {
+  right: -15rem;
+}
+
+.dishes .box-container .box:hover .fa-eye {
+  left: 1.5rem;
+}
+
+.dishes .box-container .box:hover .fa-heart {
+  right: 1.5rem;
+}
+
+.dishes .box-container .box h3 {
+  font-size: 2.5rem;
+  color: var(--black);
+}
+
+.dishes .box-container .box .stars {
+  padding: 1rem 0;
+  color: var(--black);
+}
+
+.dishes .box-container .box .stars i {
+  font-size: 1.7rem;
+  color: var(--green);
+}
+
+.dishes .box-container .box span {
+  margin-right: 1rem;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: var(--green);
+}
+
+.dishes .box-container img {
+  width: 20rem;
+  height: 20rem;
+  margin: 1rem 0;
+  cursor: pointer;
+}
+
+.about .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.about .row .image {
+  flex: 1 1 45rem;
+}
+.about .row .image img {
+  width: 100%;
+  height: auto;
+}
+.about .row .content {
+  flex: 1 1 45rem;
+}
+
+.about .row .content h3 {
+  color: var(--black);
+  font-size: 4rem;
+  padding: 0.5rem 0;
+}
+.about .row .content p {
+  color: var(--light-color);
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+  line-height: 2;
+}
+
+.about .row .content .icons-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+}
+
+.about .row .content .icons-container .icons {
+  background: var(--silver);
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--dark-transparency-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex: 1 1 17rem;
+  padding: 1.5rem 1rem;
+}
+
+.about .row .content .icons-container .icons i {
+  font-size: 2.5rem;
+  color: var(--green);
+}
+
+.about .row .content .icons-container .icons span {
+  font-size: 1.5rem;
+  color: var(--black);
+}
+
+.menu .box-container {
+  padding-bottom: 2rem;
+  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+}
+
+.menu .box-container .box {
+  background: var(--white);
+  border: 0.1rem solid var(--dark-transparency-2);
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.menu .box-container .box .image {
+  /*
+    width: 25rem;
+    height: 25rem;
+  */
+  padding: 1.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.menu .box-container .box .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+.menu .box-container .box .image .fa-heart {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  text-align: center;
+  font-size: 2rem;
+  border-radius: 50%;
+  color: var(--black);
+  background: var(--white);
+}
+
+.menu .box-container .box .image .fa-heart:hover {
+  color: var(--white);
+  background-color: var(--green);
+}
+
+.menu .box-container .box .content {
+  padding: 2rem;
+  padding-top: 0;
+}
+
+.menu .box-container .box .content .stars {
+  padding-bottom: 1rem;
+}
+
+.menu .box-container .box .content .stars i {
+  font-size: 1.7rem;
+  color: var(--green);
+}
+
+.menu .box-container .box .content h3 {
+  color: var(--black);
+  font-size: 2.5rem;
+}
+
+.menu .box-container .box .content p {
+  color: var(--light-color);
+  font-size: 1.6rem;
+  padding: 0.5rem 0;
+  line-height: 1.5rem;
+}
+
+.menu .box-container .box span {
+  margin-left: 1rem;
+  font-size: 2.5rem;
+  color: var(--green);
+}
+
+.review .slide {
+  padding: 2rem;
+  box-shadow: var(--box-shadow);
+  border: 0.1rem solid var(--dark-transparency-2);
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.review .slide .fa-quote-right {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 6rem;
+  color: var(--silver);
+}
+
+.review .slide .user {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  padding-top: 1.5rem;
+}
+
+.review .slide .user img {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.review .slide .user h3 {
+  color: var(--black);
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.review .slide .user i {
+  font-size: 1.3rem;
+  color: var(--green);
+}
+
+.review .slide .user p {
+  font-size: 1.5rem;
+  color: var(--light-color);
+  line-height: 1.8rem;
+
+}
+
+.order form {
+  /*width: 90rem;*/
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  border: .1rem solid var(--dark-transparency-2);
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.order form .input-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.order form .input-box .input {
+  width: 49%;
+}
+
+.order form .input-box .input span {
+  display: block;
+  padding: 0.5rem 0;
+  font-size: 1.5rem;
+  color: var(--light-color);
+}
+
+.order form .input-box .input input,
+.order form .input-box .input textarea {
+  background: var(--white);
+  border-radius: .5rem;
+  padding: 1rem;
+  font-size: 1.6rem;
+  color: var(--black);
+  text-transform: none;
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid var(--dark-transparency-2);
+}
+
+.order form .input-box .input input:focus,
+.order form .input-box .input textarea:focus {
+  border: 1px solid var(--green);
+}
+
+.order form .input-box .input textarea {
+  height: 20rem;
+  resize: none;
+}
+.order form .btn {
+  margin-top: 0;
+}
+
+.footer .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
+}
+
+.footer .box-container .box h3 {
+  padding: 0.5rem 0;
+  font-size: 2.5rem;
+  color: var(--black);
+}
+
+.footer .box-container .box a {
+  display: block;
+  padding: 0.5rem 0;
+  font-size: 1.5rem;
+  color: var(--light-color);
+}
+
+.footer .box-container .box .item {
+  display: flex;
+  align-items: center;
+}
+.footer .box-container .box .item i {
+  padding-right: 1rem;
+}
+
+.footer .box-container .box a:hover {
+  color: var(--green);
+  font-weight: bolder;
+}
+
+.footer .credit {
+  text-align: center;
+  border-top: .1rem solid var(--dark-transparency-2);
+  font-size: 2rem;
+  color: var(--black);
+  padding: 0.5rem;
+  padding-top: 1.5rem;
+}
+
+.footer .credit span {
+  color: var(--green);
+}
+/* End Product List */
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+
+  header {
+    padding: 1rem 2rem;
+  }
+
+  section {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+
+  header .icons .menu-bar {
+    display: inline-block;
+  }
+
+  header .navbar {
+    top: 100%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    padding: 1rem;
+    background: var(--white);
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+    border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
+    /* display: none; */
+    /* Using the "polygon" property to display/hide an element is smoother than rendering by using the property "display" */
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+
+  header .navbar.active {
+    /*display: block;*/
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  header .navbar a {
+    display: block;
+    margin: 1rem;
+    padding: 1.5rem;
+    font-size: 2rem;
+    background: var(--silver);
+  }
+
+  .order form .input-box .input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 45%;
+  }
+
+  header {
+    padding: 1rem 2rem;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .dishes .box-container img {
+    height: auto;
+    width: 100%;
+  }
+
+  .order form .input-box .input {
+    width: 100%;
+  }
+}
+
+
+/* Css common */
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  font-size: 1.7rem;
+  color: var(--white);
+  background-color: var(--black);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 0.8rem 3rem;
+}
+
+.btn:hover {
+  background: var(--green);
+  letter-spacing: 0.1rem;
+}
+
+.three-dots {
+  width: 25rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.content-sample {
+  padding: 4% 2%;
+  font-size: 1.5rem;
+}
