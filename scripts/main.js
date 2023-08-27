@@ -14,12 +14,30 @@ menuBtn.onclick = () => {
     menuBtn.classList.toggle('fa-times');
 }
 
+let sections = document.querySelectorAll('section');
+let navLinks = document.querySelectorAll('header .navbar a');
+
 /**
  * Hide menu bar on small device when scrolling
  */
 window.onscroll = () => {
     navBar.classList.remove('active');
     menuBtn.classList.remove('fa-times');
+    sections.forEach(section => {
+        let top = window.scrollY;
+        let height = section.offsetHeight;
+        let offset = section.offsetTop - 150;
+        let id = section.getAttribute('id');
+        if (top >= offset && top < offset + height) {
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                let navLink = document.querySelector('header .navbar a[href*=' + id + ']');
+                if (navLink) {
+                    navLink.classList.add('active');
+                }
+            });
+        }
+    });
 }
 
 /**
@@ -56,7 +74,7 @@ var swiperHomeSlider = new Swiper(".home-slider", {
         delay: 7000,
         disableOnInteraction: false,
     },
-    
+
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -93,3 +111,13 @@ var swiperReviewSlider = new Swiper(".review-slider", {
         }
     }
 });
+
+function initialize() {
+    setInterval(() => {
+        document.querySelector('.loader-container').classList.add('fade-out');
+    }, 3000);
+}
+
+window.onload = function () {
+    initialize();
+};
