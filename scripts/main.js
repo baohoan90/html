@@ -115,7 +115,7 @@ var swiperReviewSlider = new Swiper(".review-slider", {
 function initialize() {
     setInterval(() => {
         document.querySelector('.loader-container').classList.add('fade-out');
-    }, 3000);
+    }, 1500);
 }
 
 window.onload = function () {
